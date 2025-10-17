@@ -17,3 +17,92 @@
 [2025-10-16 17:07:27,307: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
 
 x==========x]
+[2025-10-16 17:30:36,107: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-10-16 17:30:36,119: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-10-16 17:30:36,123: INFO: common: created directory at: artifacts]
+[2025-10-16 17:30:36,125: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-10-16 17:30:46,503: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-10-16 17:53:12,579: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-10-16 17:53:12,581: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-10-16 17:53:12,584: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-10-16 17:53:12,585: INFO: common: created directory at: artifacts]
+[2025-10-16 17:53:12,586: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-10-16 17:53:12,587: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-10-16 17:53:12,614: ERROR: main: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001650422B340>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))]
+Traceback (most recent call last):
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\connectionpool.py", line 1061, in _validate_conn
+    conn.connect()
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x000001650422B340>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001650422B340>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 15, in <module>
+    data_ingestion.main()
+  File "C:\Users\ruhan\Downloads\Kidney--Disease-Classification-Deep-Leaning-Project\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "C:\Users\ruhan\Downloads\Kidney--Disease-Classification-Deep-Leaning-Project\src\cnnClassifier\components\data_ingestion.py", line 33, in download_file
+    raise e
+  File "C:\Users\ruhan\Downloads\Kidney--Disease-Classification-Deep-Leaning-Project\src\cnnClassifier\components\data_ingestion.py", line 28, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\gdown\download.py", line 202, in download
+    res = sess.get(url, stream=True, verify=verify)
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ruhan\AppData\Local\Programs\Python\Python38\lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001650422B340>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-17 12:17:49,472: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-10-17 12:17:49,475: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-10-17 12:17:49,479: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-10-17 12:17:49,480: INFO: common: created directory at: artifacts]
+[2025-10-17 12:17:49,480: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-10-17 12:17:49,480: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-10-17 12:18:03,680: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-10-17 12:18:05,058: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-10-17 12:18:05,059: INFO: main: *******************]
+[2025-10-17 12:18:05,059: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-10-17 12:18:05,062: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-10-17 12:18:05,067: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-10-17 12:18:05,068: INFO: common: created directory at: artifacts]
+[2025-10-17 12:18:05,069: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-10-17 12:18:06,498: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-10-17 12:18:06,848: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
